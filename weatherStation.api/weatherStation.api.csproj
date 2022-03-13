@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="nlog.config" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="nlog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NLog.Web.AspNetCore" Version="4.14.0" />
+    <PackageReference Include="prometheus-net.AspNetCore" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LogUltra.Console\LogUltra.Console.csproj" />
+    <ProjectReference Include="..\LogUltra.Core\LogUltra.Core.csproj" />
+    <ProjectReference Include="..\LogUltra.Db\LogUltra.Db.csproj" />
+    <ProjectReference Include="..\LogUltra.File\LogUltra.File.csproj" />
+  </ItemGroup>
+
+
+</Project>
