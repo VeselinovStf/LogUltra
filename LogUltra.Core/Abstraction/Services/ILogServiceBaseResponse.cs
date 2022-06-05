@@ -2,7 +2,7 @@
 {
     public interface  ILogServiceBaseResponse
     {
-         bool Success { get; set; }
+        bool Success { get; set; }
         string Message { get; set; }
     }
 }

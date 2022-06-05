@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Linq.Dynamic.Core;
 
 namespace LogUltra.Log.Service
 {
@@ -18,35 +19,6 @@ namespace LogUltra.Log.Service
         public LogService(ILogUltraRepository<LogUltra.Models.Log> logRepository)
         {
             this.logRepository = logRepository;
-        }
-
-        public async Task<GetLogsResponseModel> GetAsync()
-        {
-            try
-            {
-                var logs = this.logRepository
-                    .GetAll();
-              
-                return new GetLogsResponseModel()
-                {
-                    Message = ConstantMessages.LogServiceMessages.SuccessMessages.GetAllLogsAsyncSuccessMessage,
-                    Success = true,
-                    Logs = new List<LogDTO>(logs.Select(l => new LogDTO()
-                    {
-                        CreatedAt = l.CreatedAt,
-                        Description = l.Description,
-                        Exception = l.Exception,
-                        Id = l.Id,
-                        IsException = l.IsException,
-                        Level = l.Level,
-                        Source = l.Source,
-                    }))
-                };
-            }
-            catch (Exception ex)
-            {
-                throw new LogServiceException(ex.Message, ex.InnerException);
-            }
         }
 
         public async Task<GetLogsResponseModel> GetAsync(string sortColumn,
@@ -93,7 +65,11 @@ namespace LogUltra.Log.Service
                     logs = logs.Where(m => m.IsException.ToString().ToLower().Contains(exception.ToLower()));
                 }
 
-                var data = logs.Skip(skip).Take(pageSize).ToList();
+                var data = await logs
+                    .AsNoTracking()
+                    .Skip(skip)
+                    .Take(pageSize)
+                    .ToListAsync();
 
                 return new GetLogsResponseModel()
                 {
