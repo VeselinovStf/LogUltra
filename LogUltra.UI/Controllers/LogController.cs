@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
-using LogUltra.UI.Services;
+using LogUltra.Core.Abstraction;
+using LogUltra.Log.Service.Models;
 using LogUltra.UI.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -8,17 +9,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Dynamic.Core;
+using System.Threading.Tasks;
 
 namespace LogUltra.UI.Controllers
 {
     public class LogController : Controller
     {
-        private readonly LogService _logService;
+        private readonly ILogService<GetLogsResponseModel> _logService;
         private readonly ILogger<LogController> _logger;
         private readonly IMapper _mapper;
 
         public LogController(
-            LogService logService,
+            ILogService<GetLogsResponseModel> logService,
             ILogger<LogController> logger,
             IMapper mapper)
         {
@@ -33,7 +35,7 @@ namespace LogUltra.UI.Controllers
         }
 
         [HttpPost]
-        public IActionResult List()
+        public async Task<IActionResult> List()
         {
             try
             {
@@ -45,55 +47,31 @@ namespace LogUltra.UI.Controllers
                 var searchValue = Request.Form["search[value]"].FirstOrDefault().ToLower();
                 int pageSize = length != null ? Convert.ToInt32(length) : 0;
                 int skip = start != null ? Convert.ToInt32(start) : 0;
-                int recordsTotal = 0;
+                
 
                 var level = Request.Form["level"].FirstOrDefault();
                 var source = Request.Form["source"].FirstOrDefault();
                 var exception = Request.Form["exception"].FirstOrDefault();
 
-                var logs = this._logService.Get().AsQueryable();
+                var serviceResponse = await this._logService
+                    .GetAsync(sortColumn, sortColumnDirection, searchValue, level, source, exception, pageSize, skip);
 
-                if (!(string.IsNullOrEmpty(sortColumn) && string.IsNullOrEmpty(sortColumnDirection)))
+                if (serviceResponse.Success)
                 {
-                    logs = logs.OrderBy(sortColumn + " " + sortColumnDirection);
+                    int recordsTotal = serviceResponse.Logs.Count();
+
+                    var mappedLogs = this._mapper.Map<List<LogViewModel>>(serviceResponse.Logs);
+
+                    var jsonData = new { draw = draw, recordsFiltered = recordsTotal, recordsTotal = recordsTotal, data = mappedLogs };
+
+                    this._logger.LogInformation(serviceResponse.Message);
+
+                    return Ok(jsonData);
                 }
 
-                if (!string.IsNullOrEmpty(searchValue))
-                {
-                    logs = logs.Where(m => m.Id.ToLower().Contains(searchValue)
-                                                || m.Description.ToLower().Contains(searchValue)
-                                                || m.Source.ToLower().Contains(searchValue)
-                                                || m.Exception.ToLower().Contains(searchValue)
-                                                || m.CreatedAt.ToString("dd-MM-yyyy hh:mm:ss").ToLower().Contains(searchValue)
-                                                || m.Level.ToLower().Contains(searchValue));
-                }
+                this._logger.LogError(serviceResponse.Message);
 
-                if (!string.IsNullOrWhiteSpace(level))
-                {
-                    logs = logs.Where(m => m.Level.ToLower().Contains(level.ToLower()));
-                }
-
-                if (!string.IsNullOrWhiteSpace(source))
-                {
-                    logs = logs.Where(m => m.Source.ToLower().Contains(source.ToLower()));
-                }
-
-                if (!string.IsNullOrWhiteSpace(exception))
-                {
-                    logs = logs.Where(m => m.IsException.ToString().ToLower().Contains(exception.ToLower()));
-                }
-
-
-                recordsTotal = logs.Count();
-                var data = logs.Skip(skip).Take(pageSize).ToList();
-
-                var mappedLogs = this._mapper.Map<List<LogViewModel>>(data);
-
-                var jsonData = new { draw = draw, recordsFiltered = recordsTotal, recordsTotal = recordsTotal, data = mappedLogs };
-
-                this._logger.LogInformation("Returning Datatables Model");
-
-                return Ok(jsonData);
+                return RedirectToAction("Error", "Home");
             }
             catch (Exception ex)
             {
@@ -101,75 +79,6 @@ namespace LogUltra.UI.Controllers
 
                 return RedirectToAction("Error", "Home");
             }
-        }
-
-        // GET: LogController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: LogController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: LogController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: LogController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: LogController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: LogController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: LogController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        }    
     }
 }

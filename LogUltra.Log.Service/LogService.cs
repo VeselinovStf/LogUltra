@@ -65,11 +65,10 @@ namespace LogUltra.Log.Service
                     logs = logs.Where(m => m.IsException.ToString().ToLower().Contains(exception.ToLower()));
                 }
 
-                var data = await logs
+                var data =  logs
                     .AsNoTracking()
                     .Skip(skip)
-                    .Take(pageSize)
-                    .ToListAsync();
+                    .Take(pageSize);
 
                 return new GetLogsResponseModel()
                 {

@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using LogUltra.Models;
+using LogUltra.Log.Service.DTOs;
 using LogUltra.UI.ViewModels;
 
 namespace LogUltra.UI.ModelMapping
@@ -8,7 +8,7 @@ namespace LogUltra.UI.ModelMapping
     {
         public LogProfile()
         {
-            CreateMap<Log, LogViewModel>()
+            CreateMap<LogDTO, LogViewModel>()
                     .ForMember(s => s.CreatedAt, m => m.MapFrom(e => e.CreatedAt.ToString("dd-MM-yyyy hh:mm:ss")));
         }
     }

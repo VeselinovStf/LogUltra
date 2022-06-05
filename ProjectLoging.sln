@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogUltra.UI", "LogUltra.UI\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogUltra.Log.Service", "LogUltra.Log.Service\LogUltra.Log.Service.csproj", "{7C6F6600-7F3C-42DA-BA7F-EAA32F2888A2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogUltra.MongoDb", "LogUltra.MongoDb\LogUltra.MongoDb.csproj", "{39036AC5-97A2-4269-BAA6-D9619EA966DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{7C6F6600-7F3C-42DA-BA7F-EAA32F2888A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C6F6600-7F3C-42DA-BA7F-EAA32F2888A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C6F6600-7F3C-42DA-BA7F-EAA32F2888A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39036AC5-97A2-4269-BAA6-D9619EA966DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39036AC5-97A2-4269-BAA6-D9619EA966DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39036AC5-97A2-4269-BAA6-D9619EA966DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39036AC5-97A2-4269-BAA6-D9619EA966DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

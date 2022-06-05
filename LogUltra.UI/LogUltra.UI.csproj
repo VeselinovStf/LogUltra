@@ -17,7 +17,9 @@
     <ProjectReference Include="..\LogUltra.Core\LogUltra.Core.csproj" />
     <ProjectReference Include="..\LogUltra.Db\LogUltra.Db.csproj" />
     <ProjectReference Include="..\LogUltra.File\LogUltra.File.csproj" />
+    <ProjectReference Include="..\LogUltra.Log.Service\LogUltra.Log.Service.csproj" />
     <ProjectReference Include="..\LogUltra.Models\LogUltra.Models.csproj" />
+    <ProjectReference Include="..\LogUltra.MongoDb\LogUltra.MongoDb.csproj" />
   </ItemGroup>
 
 </Project>

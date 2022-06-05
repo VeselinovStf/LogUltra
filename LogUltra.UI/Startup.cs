@@ -1,6 +1,8 @@
 using LogUltra.Core.Abstraction;
+using LogUltra.Db.Extensions;
+using LogUltra.Log.Service.Extensions;
+using LogUltra.MongoDb;
 using LogUltra.UI.Data;
-using LogUltra.UI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -25,13 +27,10 @@ namespace LogUltra.UI
         {
             services.AddControllersWithViews();
 
-            services.Configure<LoggingDatabaseSetting>(
-                Configuration.GetSection(nameof(LoggingDatabaseSetting)));
-
-            services.AddSingleton<ILogUltraDataSetting>(sp =>
-                sp.GetRequiredService<IOptions<LoggingDatabaseSetting>>().Value);
-
-            services.AddSingleton<LogService>();
+            // LogUltra Db
+            services.AddLogUltraDb<LoggingDatabaseSetting>(Configuration);
+            services.AddLogUltraLogService();
+            services.AddLogUltraMongoDb();
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
         }
