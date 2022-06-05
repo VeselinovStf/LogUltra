@@ -21,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogUltra.UI", "LogUltra.UI\LogUltra.UI.csproj", "{5020FC4B-760A-400A-900D-AC780C327C26}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogUltra.Log.Service", "LogUltra.Log.Service\LogUltra.Log.Service.csproj", "{7C6F6600-7F3C-42DA-BA7F-EAA32F2888A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{5020FC4B-760A-400A-900D-AC780C327C26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5020FC4B-760A-400A-900D-AC780C327C26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5020FC4B-760A-400A-900D-AC780C327C26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C6F6600-7F3C-42DA-BA7F-EAA32F2888A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C6F6600-7F3C-42DA-BA7F-EAA32F2888A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C6F6600-7F3C-42DA-BA7F-EAA32F2888A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C6F6600-7F3C-42DA-BA7F-EAA32F2888A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
