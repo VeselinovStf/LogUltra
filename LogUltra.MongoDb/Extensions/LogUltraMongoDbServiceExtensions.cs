@@ -1,8 +1,5 @@
 ﻿using LogUltra.Core.Abstraction;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace LogUltra.MongoDb
 {

@@ -1,4 +1,3 @@
-using LogUltra.Core.Abstraction;
 using LogUltra.Db.Extensions;
 using LogUltra.Log.Service.Extensions;
 using LogUltra.MongoDb;
@@ -8,7 +7,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Options;
 using System.Reflection;
 
 namespace LogUltra.UI

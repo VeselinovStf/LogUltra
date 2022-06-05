@@ -1,9 +1,6 @@
 ﻿using LogUltra.Core.Abstraction;
 using LogUltra.Log.Service.Models;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace LogUltra.Log.Service.Extensions
 {

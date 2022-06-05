@@ -7,8 +7,8 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Linq.Dynamic.Core;
+using System.Threading.Tasks;
 
 namespace LogUltra.Log.Service
 {
@@ -65,7 +65,7 @@ namespace LogUltra.Log.Service
                     logs = logs.Where(m => m.IsException.ToString().ToLower().Contains(exception.ToLower()));
                 }
 
-                var data =  logs
+                var data = logs
                     .AsNoTracking()
                     .Skip(skip)
                     .Take(pageSize);

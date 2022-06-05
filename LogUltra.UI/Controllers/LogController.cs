@@ -2,7 +2,6 @@
 using LogUltra.Core.Abstraction;
 using LogUltra.Log.Service.Models;
 using LogUltra.UI.ViewModels;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -47,7 +46,7 @@ namespace LogUltra.UI.Controllers
                 var searchValue = Request.Form["search[value]"].FirstOrDefault().ToLower();
                 int pageSize = length != null ? Convert.ToInt32(length) : 0;
                 int skip = start != null ? Convert.ToInt32(start) : 0;
-                
+
 
                 var level = Request.Form["level"].FirstOrDefault();
                 var source = Request.Form["source"].FirstOrDefault();
@@ -79,6 +78,6 @@ namespace LogUltra.UI.Controllers
 
                 return RedirectToAction("Error", "Home");
             }
-        }    
+        }
     }
 }
