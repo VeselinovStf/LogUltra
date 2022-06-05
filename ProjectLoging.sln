@@ -18,9 +18,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4F611CE2-C54B-48E5-B6EB-8DDC22976923}"
 	ProjectSection(SolutionItems) = preProject
 		docker-compose-mongo.yml = docker-compose-mongo.yml
+		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogUltra.UI", "LogUltra.UI\LogUltra.UI.csproj", "{5020FC4B-760A-400A-900D-AC780C327C26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogUltra.UI", "LogUltra.UI\LogUltra.UI.csproj", "{5020FC4B-760A-400A-900D-AC780C327C26}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
