@@ -1,4 +1,6 @@
-﻿using LogUltra.File.Condigurations;
+﻿using LogUltra.Core.Abstraction;
+using LogUltra.File.Condigurations;
+using LogUltra.TemplateParser;
 using Microsoft.Extensions.Logging;
 using System;
 using System.IO;
@@ -11,10 +13,18 @@ namespace LogUltra.File
         private readonly string _name;
         private readonly Func<LogUltraFileConfiguration> _getCurrentConfig;
 
+        private readonly ITemplateFormatter _templateFormatter;
+        private readonly ITemplateParser _templateParser;
+
         public LogUltraFileLogger(
             string name,
-            Func<LogUltraFileConfiguration> getCurrentConfig) =>
+            Func<LogUltraFileConfiguration> getCurrentConfig)
+        {
             (_name, _getCurrentConfig) = (name, getCurrentConfig);
+
+            _templateFormatter = new TemplateFormatter();
+            _templateParser = new TemplateParser.TemplateParser();
+        }
 
         public IDisposable BeginScope<TState>(TState state) => default!;
 
@@ -50,14 +60,33 @@ namespace LogUltra.File
                             Directory.CreateDirectory(logFileDirectory);
                         }
 
-                        var messageBuilder = new StringBuilder();
-                        messageBuilder.AppendLine("-------------------------------------");
-                        messageBuilder.AppendLine($"[{eventId.Id}: {logLevel}]");
-                        messageBuilder.AppendLine($"{_name}");
-                        messageBuilder.AppendLine($"{formatter(state, exception)}");
-                        messageBuilder.AppendLine("-------------------------------------");
+                        if (config.UseTemplate)
+                        {
+                            var templateContent = this._templateParser
+                                                       .GetTemplate(config.TemplatePath);
 
-                        System.IO.File.AppendAllText(config.FilePath, messageBuilder.ToString());
+                            var template = this._templateFormatter
+                                .Parse(
+                                    logLevel,
+                                    eventId,
+                                    state,
+                                    exception,
+                                    formatter,
+                                    _name,
+                                    templateContent);
+
+                            System.IO.File.AppendAllText(config.FilePath, template);
+                        }
+                        else
+                        {
+                            System.Console.WriteLine("-------------------------------------");
+                            System.Console.WriteLine($"[{eventId.Id}: {logLevel}]");
+                            System.Console.WriteLine($"{_name}");
+                            System.Console.WriteLine($"{formatter(state, exception)}");
+                            System.Console.WriteLine("-------------------------------------");
+                        }
+
+                        
 
                     }
 

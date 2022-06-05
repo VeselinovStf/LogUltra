@@ -32,11 +32,15 @@ namespace LogUltra.UI
                              .AddLogUltraConsoleLogger(c =>
                              {
                                  c.LogLevelsRules[Microsoft.Extensions.Logging.LogLevel.Trace] = true;
+                                 c.TemplatePath = "LogUltra/logultra";
+                                 c.UseTemplate = true;
                              })
                              .AddLogUltraFileLogger(c =>
                              {
                                  c.LogLevelsRules[Microsoft.Extensions.Logging.LogLevel.Trace] = true;
                                  c.FilePath = @"LogUltra/log.txt";
+                                 c.TemplatePath = "LogUltra/logultra";
+                                 c.UseTemplate = true;
 
                              })
                              .AddLogUltraDbLogger(c =>

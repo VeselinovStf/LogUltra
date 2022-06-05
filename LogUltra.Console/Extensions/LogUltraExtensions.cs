@@ -1,5 +1,7 @@
 ﻿using LogUltra.Console.Condigurations;
 using LogUltra.Console.Providers;
+using LogUltra.Core.Abstraction;
+using LogUltra.TemplateParser;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;

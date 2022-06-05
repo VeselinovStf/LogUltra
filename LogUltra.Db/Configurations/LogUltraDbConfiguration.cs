@@ -2,10 +2,8 @@
 
 namespace LogUltra.Db.Condigurations
 {
-    public class LogUltraDbConfiguration : LogLevelRulesBase, ILogEvent, ILogDb
+    public class LogUltraDbConfiguration : LogUltraBaseConfiguration, ILogDb
     {
-        public int EventId { get; set; }
-
         public ILogUltraDataSetting DbSettings { get; set; }
     }
 }

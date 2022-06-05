@@ -2,8 +2,7 @@
 
 namespace LogUltra.Console.Condigurations
 {
-    public class LogUltraConsoleConfiguration : LogLevelRulesBase, ILogEvent
+    public class LogUltraConsoleConfiguration : LogUltraBaseConfiguration
     {
-        public int EventId { get; set; }
     }
 }

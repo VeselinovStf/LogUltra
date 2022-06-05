@@ -2,9 +2,8 @@
 
 namespace LogUltra.File.Condigurations
 {
-    public class LogUltraFileConfiguration : LogLevelRulesBase, ILogEvent
+    public class LogUltraFileConfiguration : LogUltraBaseConfiguration
     {
-        public int EventId { get; set; }
         /// <summary>
         /// File path to log file. Mendatory if UseFile is set to try.
         /// </summary>
