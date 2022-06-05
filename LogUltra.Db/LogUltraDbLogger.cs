@@ -1,4 +1,5 @@
-﻿using LogUltra.Db.Condigurations;
+﻿using LogUltra.Core.Abstraction;
+using LogUltra.Db.Condigurations;
 using LogUltra.Models;
 using Microsoft.Extensions.Logging;
 using MongoDB.Driver;
@@ -12,10 +13,20 @@ namespace LogUltra.Db
         private readonly string _name;
         private readonly Func<LogUltraDbConfiguration> _getCurrentConfig;
 
+        private readonly ITemplateFormatter _templateFormatter;
+        private readonly ITemplateParser _templateParser;
+
         public LogUltraDbLogger(
+              ITemplateFormatter templateFormatter,
+            ITemplateParser templateParser,
             string name,
-            Func<LogUltraDbConfiguration> getCurrentConfig) =>
+            Func<LogUltraDbConfiguration> getCurrentConfig)
+        {
             (_name, _getCurrentConfig) = (name, getCurrentConfig);
+
+            _templateFormatter = templateFormatter;
+            _templateParser = templateParser;
+        }
 
         public IDisposable BeginScope<TState>(TState state) => default!;
 

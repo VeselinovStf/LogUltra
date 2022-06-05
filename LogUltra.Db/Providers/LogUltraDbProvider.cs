@@ -1,4 +1,5 @@
-﻿using LogUltra.Db.Condigurations;
+﻿using LogUltra.Core.Abstraction;
+using LogUltra.Db.Condigurations;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System;
@@ -14,15 +15,23 @@ namespace LogUltra.Db.Providers
         private readonly ConcurrentDictionary<string, LogUltraDbLogger> _loggers =
             new ConcurrentDictionary<string, LogUltraDbLogger>();
 
+        private readonly ITemplateFormatter _templateFormatter;
+        private readonly ITemplateParser _templateParser;
+
         public LogUltraDbProvider(
+            ITemplateFormatter templateFormatter,
+            ITemplateParser templateParser,
             IOptionsMonitor<LogUltraDbConfiguration> config)
         {
             _currentConfig = config.CurrentValue;
             _onChangeToken = config.OnChange(updatedConfig => _currentConfig = updatedConfig);
+
+            _templateFormatter = templateFormatter;
+            _templateParser = templateParser;
         }
 
         public ILogger CreateLogger(string categoryName) =>
-            _loggers.GetOrAdd(categoryName, name => new LogUltraDbLogger(name, GetCurrentConfig));
+            _loggers.GetOrAdd(categoryName, name => new LogUltraDbLogger(_templateFormatter, _templateParser,name, GetCurrentConfig));
 
         private LogUltraDbConfiguration GetCurrentConfig() => _currentConfig;
 

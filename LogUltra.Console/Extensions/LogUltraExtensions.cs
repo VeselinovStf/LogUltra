@@ -24,6 +24,9 @@ namespace LogUltra.Console.Extensions
             LoggerProviderOptions.RegisterProviderOptions
                 <LogUltraConsoleConfiguration, LogUltraConsoleProvider>(builder.Services);
 
+            builder.Services.AddSingleton<ITemplateFormatter, TemplateFormatter>();
+            builder.Services.AddSingleton<ITemplateParser, TemplateParser.TemplateParser>();
+
             return builder;
         }
 

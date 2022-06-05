@@ -17,13 +17,15 @@ namespace LogUltra.File
         private readonly ITemplateParser _templateParser;
 
         public LogUltraFileLogger(
+              ITemplateFormatter templateFormatter,
+            ITemplateParser templateParser,
             string name,
             Func<LogUltraFileConfiguration> getCurrentConfig)
         {
             (_name, _getCurrentConfig) = (name, getCurrentConfig);
 
-            _templateFormatter = new TemplateFormatter();
-            _templateParser = new TemplateParser.TemplateParser();
+            _templateFormatter = templateFormatter;     
+                _templateParser =templateParser;
         }
 
         public IDisposable BeginScope<TState>(TState state) => default!;

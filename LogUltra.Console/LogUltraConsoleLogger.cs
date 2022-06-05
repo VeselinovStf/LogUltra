@@ -15,14 +15,16 @@ namespace LogUltra.Console
         private readonly ITemplateParser _templateParser;
 
         public LogUltraConsoleLogger(
+            ITemplateFormatter templateFormatter,
+            ITemplateParser templateParser,
             string name,
             Func<LogUltraConsoleConfiguration> getCurrentConfig)
         {
             _name = name;
             _getCurrentConfig = getCurrentConfig;
 
-            _templateFormatter = new TemplateFormatter();
-            _templateParser = new TemplateParser.TemplateParser();
+            _templateFormatter = templateFormatter;
+            _templateParser = templateParser;
         }
 
 

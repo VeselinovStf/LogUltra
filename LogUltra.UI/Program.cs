@@ -2,6 +2,7 @@ using LogUltra.Console.Extensions;
 using LogUltra.Db.Condigurations;
 using LogUltra.Db.Extensions;
 using LogUltra.File.Extensions;
+using LogUltra.UI.Data;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
@@ -43,7 +44,7 @@ namespace LogUltra.UI
                                  c.UseTemplate = true;
 
                              })
-                             .AddLogUltraDbLogger(c =>
+                             .AddLogUltraDbLogger<LoggingDatabaseSetting>(c =>
                              {
                                  c.LogLevelsRules[Microsoft.Extensions.Logging.LogLevel.Information] = true;
                                  c.DbSettings = new LogUltraDatabaseSetting()
@@ -53,7 +54,7 @@ namespace LogUltra.UI
                                      LogCollectionName = whbc.Configuration.GetSection("LoggingDatabaseSetting").GetSection("LogCollectionName").Value,
                                      Source = "LogUltra.UI"
                                  };
-                             });
+                             }, whbc.Configuration);
                          logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
                      });
                 });

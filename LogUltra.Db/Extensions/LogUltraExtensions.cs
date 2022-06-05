@@ -1,6 +1,7 @@
 ﻿using LogUltra.Core.Abstraction;
 using LogUltra.Db.Condigurations;
 using LogUltra.Db.Providers;
+using LogUltra.TemplateParser;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -24,34 +25,29 @@ namespace LogUltra.Db.Extensions
             LoggerProviderOptions.RegisterProviderOptions
                 <LogUltraDbConfiguration, LogUltraDbProvider>(builder.Services);
 
+            builder.Services.AddSingleton<ITemplateFormatter, TemplateFormatter>();
+            builder.Services.AddSingleton<ITemplateParser, TemplateParser.TemplateParser>();
+
             return builder;
         }
 
         /// <summary>
         /// Add Log Ultra Db Logger to App
         /// </summary>
-        public static ILoggingBuilder AddLogUltraDbLogger(
+        public static ILoggingBuilder AddLogUltraDbLogger<T>(
             this ILoggingBuilder builder,
-            Action<LogUltraDbConfiguration> configure)
+            Action<LogUltraDbConfiguration> configure, IConfiguration Configuration) where T : class, ILogUltraDataSetting, new()
         {
             builder.AddLogUltraDbLogger();
             builder.Services.Configure(configure);
 
-            return builder;
-        }
+            builder.Services.Configure<T>(
+                Configuration.GetSection(typeof(T).Name));
 
-        /// <summary>
-        /// Add Log Ultra Db to App
-        /// </summary>
-        public static void AddLogUltraDb<T>(
-            this IServiceCollection services, IConfiguration Configuration) where T : class, ILogUltraDataSetting, new()
-        {
-            services.Configure<T>(
-               Configuration.GetSection(typeof(T).Name));
-
-            services.AddSingleton<ILogUltraDataSetting>(sp =>
+           builder.Services.AddSingleton<ILogUltraDataSetting>(sp =>
                 sp.GetRequiredService<IOptions<T>>().Value);
 
+            return builder;
         }
     }
 }

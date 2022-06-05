@@ -1,5 +1,7 @@
-﻿using LogUltra.File.Condigurations;
+﻿using LogUltra.Core.Abstraction;
+using LogUltra.File.Condigurations;
 using LogUltra.File.Providers;
+using LogUltra.TemplateParser;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -22,6 +24,9 @@ namespace LogUltra.File.Extensions
 
             LoggerProviderOptions.RegisterProviderOptions
                 <LogUltraFileConfiguration, LogUltraFileProvider>(builder.Services);
+
+            builder.Services.AddSingleton<ITemplateFormatter, TemplateFormatter>();
+            builder.Services.AddSingleton<ITemplateParser, TemplateParser.TemplateParser>();
 
             return builder;
         }
