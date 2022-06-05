@@ -1,8 +1,8 @@
 ﻿using LogUltra.Core.Abstraction;
 
-namespace LogUltra.Db.Condigurations
+namespace LogUltra.MongoDb.Condigurations
 {
-    public class LogUltraDatabaseSetting : ILogUltraDataSetting, ILogSource
+    public class LogUltraMongoDbSetting : ILogUltraDataSetting, ILogSource
     {
         public string LogCollectionName { get; set; }
         public string ConnectionString { get; set; }

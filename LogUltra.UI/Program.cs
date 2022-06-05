@@ -1,7 +1,7 @@
 using LogUltra.Console.Extensions;
-using LogUltra.Db.Condigurations;
-using LogUltra.Db.Extensions;
 using LogUltra.File.Extensions;
+using LogUltra.MongoDb.Condigurations;
+using LogUltra.MongoDb.Extensions;
 using LogUltra.UI.Data;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -44,10 +44,10 @@ namespace LogUltra.UI
                                  c.UseTemplate = true;
 
                              })
-                             .AddLogUltraDbLogger<LoggingDatabaseSetting>(c =>
+                             .AddLogUltraMongoDbLogger<LoggingDatabaseSetting>(c =>
                              {
                                  c.LogLevelsRules[Microsoft.Extensions.Logging.LogLevel.Information] = true;
-                                 c.DbSettings = new LogUltraDatabaseSetting()
+                                 c.DbSettings = new LogUltraMongoDbSetting()
                                  {
                                      ConnectionString = whbc.Configuration.GetSection("LoggingDatabaseSetting").GetSection("ConnectionString").Value,
                                      DatabaseName = whbc.Configuration.GetSection("LoggingDatabaseSetting").GetSection("DatabaseName").Value,

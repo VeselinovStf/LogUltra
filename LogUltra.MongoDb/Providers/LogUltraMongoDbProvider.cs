@@ -1,27 +1,27 @@
 ﻿using LogUltra.Core.Abstraction;
-using LogUltra.Db.Condigurations;
+using LogUltra.MongoDb.Condigurations;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Concurrent;
 
-namespace LogUltra.Db.Providers
+namespace LogUltra.MongoDb.Providers
 {
     [ProviderAlias("LogUltraDb")]
-    public class LogUltraDbProvider : ILoggerProvider
+    public class LogUltraMongoDbProvider : ILoggerProvider
     {
         private readonly IDisposable _onChangeToken;
-        private LogUltraDbConfiguration _currentConfig;
-        private readonly ConcurrentDictionary<string, LogUltraDbLogger> _loggers =
-            new ConcurrentDictionary<string, LogUltraDbLogger>();
+        private LogUltraMongoDbConfiguration _currentConfig;
+        private readonly ConcurrentDictionary<string, LogUltraMongoDbLogger> _loggers =
+            new ConcurrentDictionary<string, LogUltraMongoDbLogger>();
 
         private readonly ITemplateFormatter _templateFormatter;
         private readonly ITemplateParser _templateParser;
 
-        public LogUltraDbProvider(
+        public LogUltraMongoDbProvider(
             ITemplateFormatter templateFormatter,
             ITemplateParser templateParser,
-            IOptionsMonitor<LogUltraDbConfiguration> config)
+            IOptionsMonitor<LogUltraMongoDbConfiguration> config)
         {
             _currentConfig = config.CurrentValue;
             _onChangeToken = config.OnChange(updatedConfig => _currentConfig = updatedConfig);
@@ -31,9 +31,9 @@ namespace LogUltra.Db.Providers
         }
 
         public ILogger CreateLogger(string categoryName) =>
-            _loggers.GetOrAdd(categoryName, name => new LogUltraDbLogger(_templateFormatter, _templateParser,name, GetCurrentConfig));
+            _loggers.GetOrAdd(categoryName, name => new LogUltraMongoDbLogger(_templateFormatter, _templateParser,name, GetCurrentConfig));
 
-        private LogUltraDbConfiguration GetCurrentConfig() => _currentConfig;
+        private LogUltraMongoDbConfiguration GetCurrentConfig() => _currentConfig;
 
         public void Dispose()
         {

@@ -1,26 +1,26 @@
 ﻿using LogUltra.Core.Abstraction;
-using LogUltra.Db.Condigurations;
 using LogUltra.Models;
+using LogUltra.MongoDb.Condigurations;
 using Microsoft.Extensions.Logging;
 using MongoDB.Driver;
 using System;
 using System.Threading.Tasks;
 
-namespace LogUltra.Db
+namespace LogUltra.MongoDb
 {
-    public class LogUltraDbLogger : ILogger
+    public class LogUltraMongoDbLogger : ILogger
     {
         private readonly string _name;
-        private readonly Func<LogUltraDbConfiguration> _getCurrentConfig;
+        private readonly Func<LogUltraMongoDbConfiguration> _getCurrentConfig;
 
         private readonly ITemplateFormatter _templateFormatter;
         private readonly ITemplateParser _templateParser;
 
-        public LogUltraDbLogger(
+        public LogUltraMongoDbLogger(
               ITemplateFormatter templateFormatter,
             ITemplateParser templateParser,
             string name,
-            Func<LogUltraDbConfiguration> getCurrentConfig)
+            Func<LogUltraMongoDbConfiguration> getCurrentConfig)
         {
             (_name, _getCurrentConfig) = (name, getCurrentConfig);
 
@@ -46,7 +46,7 @@ namespace LogUltra.Db
                 return;
             }
 
-            LogUltraDbConfiguration config = _getCurrentConfig();
+            LogUltraMongoDbConfiguration config = _getCurrentConfig();
             if (config.EventId == 0 || config.EventId == eventId.Id)
             {
                 var levelOption = config.LogLevelsRules.ContainsKey(logLevel);
@@ -67,7 +67,7 @@ namespace LogUltra.Db
                                 CreatedAt = DateTime.UtcNow,
                                 Description = $"{eventId.Id}:{state}",
                                 Exception = exception == null ? $"" : $"{exception}{Environment.NewLine}{exception.Message}{Environment.NewLine}{exception.StackTrace}{Environment.NewLine}{exception.InnerException}",
-                                IsException = exception == null,
+                                IsException = exception != null,
                                 Level = logLevel.ToString(),
                                 Source = config.DbSettings.Source
                             });

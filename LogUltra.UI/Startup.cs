@@ -1,8 +1,4 @@
-using LogUltra.Db.Extensions;
 using LogUltra.Log.Service.Extensions;
-using LogUltra.MongoDb;
-using LogUltra.TemplateParser.Extensions;
-using LogUltra.UI.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -27,7 +23,6 @@ namespace LogUltra.UI
             services.AddControllersWithViews();
 
             // LogUltra Db
-            services.AddLogUltraMongoDb();
             services.AddLogUltraLogService();
             
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
