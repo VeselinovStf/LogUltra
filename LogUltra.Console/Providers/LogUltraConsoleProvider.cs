@@ -31,7 +31,7 @@ namespace LogUltra.Console.Providers
         }
 
         public ILogger CreateLogger(string categoryName) =>
-            _loggers.GetOrAdd(categoryName, name => new LogUltraConsoleLogger(_templateFormatter, _templateParser,name, GetCurrentConfig));
+            _loggers.GetOrAdd(categoryName, name => new LogUltraConsoleLogger(_templateFormatter, _templateParser, name, GetCurrentConfig));
 
         private LogUltraConsoleConfiguration GetCurrentConfig() => _currentConfig;
 

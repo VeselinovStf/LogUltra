@@ -1,5 +1,4 @@
 ﻿using LogUltra.Core.Abstraction.Format;
-using System;
 using System.IO;
 
 namespace LogUltra.TemplateParser

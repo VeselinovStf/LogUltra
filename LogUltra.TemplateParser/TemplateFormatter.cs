@@ -37,7 +37,7 @@ namespace LogUltra.TemplateParser
                     {
                         resultBuilder.AppendLine(row.Replace(row, t.Value));
                         contained = true;
-                    }                    
+                    }
                 }
 
                 if (!contained)

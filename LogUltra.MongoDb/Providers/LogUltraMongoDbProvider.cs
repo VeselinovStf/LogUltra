@@ -31,7 +31,7 @@ namespace LogUltra.MongoDb.Providers
         }
 
         public ILogger CreateLogger(string categoryName) =>
-            _loggers.GetOrAdd(categoryName, name => new LogUltraMongoDbLogger(_templateFormatter, _templateParser,name, GetCurrentConfig));
+            _loggers.GetOrAdd(categoryName, name => new LogUltraMongoDbLogger(_templateFormatter, _templateParser, name, GetCurrentConfig));
 
         private LogUltraMongoDbConfiguration GetCurrentConfig() => _currentConfig;
 

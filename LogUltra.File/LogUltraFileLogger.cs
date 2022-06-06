@@ -1,10 +1,8 @@
 ﻿using LogUltra.Core.Abstraction.Format;
 using LogUltra.File.Condigurations;
-using LogUltra.TemplateParser;
 using Microsoft.Extensions.Logging;
 using System;
 using System.IO;
-using System.Text;
 
 namespace LogUltra.File
 {
@@ -24,8 +22,8 @@ namespace LogUltra.File
         {
             (_name, _getCurrentConfig) = (name, getCurrentConfig);
 
-            _templateFormatter = templateFormatter;     
-                _templateParser =templateParser;
+            _templateFormatter = templateFormatter;
+            _templateParser = templateParser;
         }
 
         public IDisposable BeginScope<TState>(TState state) => default!;
@@ -88,7 +86,7 @@ namespace LogUltra.File
                             System.Console.WriteLine("-------------------------------------");
                         }
 
-                        
+
 
                     }
 

@@ -16,7 +16,7 @@ namespace LogUltra.UI.Controllers
     public class LogController : Controller
     {
         private readonly IHttpClientFactory _clientFactory;
-        private readonly ILogger<LogController> _logger; 
+        private readonly ILogger<LogController> _logger;
 
         public LogController(
             IHttpClientFactory clientFactory,
