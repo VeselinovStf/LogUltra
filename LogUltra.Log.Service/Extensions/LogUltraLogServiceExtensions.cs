@@ -14,16 +14,7 @@ namespace LogUltra.Log.Service.Extensions
     {
         /// <summary>
         /// Add Log Ultra Service Layer
-        /// - 
         /// </summary>
-        //public static void AddLogUltraLogService(
-        //    this IServiceCollection services)
-        //{
-        //    services.AddScoped<ILogService<GetLogsResponseModel>, LogService>();
-
-        //    services.AddScoped<ILogUltraRepository<LogUltra.Models.Log>, LogUltraMongoDbRepository>();
-        //}
-
         public static ILoggingBuilder AddLogUltraMongoDbService<T>(
             this ILoggingBuilder builder,
             Action<LogUltraMongoDbConfiguration> configure, IConfiguration Configuration) where T : class, ILogUltraDataSetting, new()

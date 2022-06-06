@@ -30,7 +30,7 @@ builder.Host.ConfigureLogging((whbc, logging) =>
                 ConnectionString = whbc.Configuration.GetSection("LoggingDatabaseSetting").GetSection("ConnectionString").Value,
                 DatabaseName = whbc.Configuration.GetSection("LoggingDatabaseSetting").GetSection("DatabaseName").Value,
                 LogCollectionName = whbc.Configuration.GetSection("LoggingDatabaseSetting").GetSection("LogCollectionName").Value,
-                Source = "LogUltra.UI"
+                Source = "LogUltra.Log.UI"
             };
         }, whbc.Configuration);
     logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace)
