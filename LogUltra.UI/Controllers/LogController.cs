@@ -1,4 +1,5 @@
 ﻿using LogUltra.UI.Models;
+using LogUltra.UI.Tables;
 using LogUltra.UI.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -35,35 +36,23 @@ namespace LogUltra.UI.Controllers
         {
             try
             {
-                // Datatables request
-                var draw = Request.Form["draw"].FirstOrDefault();
-                var start = Request.Form["start"].FirstOrDefault();
-                var length = Request.Form["length"].FirstOrDefault();
-                var sortColumn = Request.Form["columns[" + Request.Form["order[0][column]"].FirstOrDefault() + "][name]"].FirstOrDefault();
-                var sortColumnDirection = Request.Form["order[0][dir]"].FirstOrDefault();
-                var searchValue = Request.Form["search[value]"].FirstOrDefault().ToLower();
-                int pageSize = length != null ? Convert.ToInt32(length) : 0;
-                int skip = start != null ? Convert.ToInt32(start) : 0;
-                var level = Request.Form["level"].FirstOrDefault();
-                var source = Request.Form["source"].FirstOrDefault();
-                var exception = Request.Form["exception"].FirstOrDefault();
+                var datatableReques = new ListLogsDataTableRequest(Request);
 
                 // Request Model
                 var requestModel = new ListLogsRequestModel()
                 {
-                    Exception = exception,
-                    Level = level,
-                    PageSize = pageSize,
-                    Skip = skip,
-                    Source = source,
-                    SortColumn = sortColumn,
-                    SortColumnDirection = sortColumnDirection,
-                    SearchValue = searchValue,
+                    Exception = datatableReques.Exception,
+                    Level = datatableReques.Level,
+                    PageSize = datatableReques.PageSize,
+                    Skip = datatableReques.Skip,
+                    Source = datatableReques.Source,
+                    SortColumn = datatableReques.SortColumn,
+                    SortColumnDirection = datatableReques.SortColumnDirection,
+                    SearchValue = datatableReques.SearchValue,
                 };
 
                 // Http Client
-                var httpClient = _clientFactory.CreateClient();
-                httpClient.BaseAddress = new Uri("http://localhost:5227");
+                var httpClient = _clientFactory.CreateClient("loguptraapi");
 
                 var todoItemJson = new StringContent(
                     JsonConvert.SerializeObject(requestModel),
@@ -84,7 +73,7 @@ namespace LogUltra.UI.Controllers
                         {
                             int recordsTotal = callResponseModel.Data.Count();
 
-                            var jsonData = new { draw = draw, recordsFiltered = recordsTotal, recordsTotal = recordsTotal, data = callResponseModel.Data };
+                            var jsonData = new { draw = datatableReques.Draw, recordsFiltered = recordsTotal, recordsTotal = recordsTotal, data = callResponseModel.Data };
 
                             this._logger.LogInformation(callResponseModel.Message);
 
@@ -94,14 +83,11 @@ namespace LogUltra.UI.Controllers
                         {
                             this._logger.LogError(httpResponse.Content.ToString());
                         }
-
-
                     }
                     else
                     {
                         this._logger.LogError(httpResponse.Content.ToString());
                     }
-
                 }
 
                 return RedirectToAction("Error", "Home");
