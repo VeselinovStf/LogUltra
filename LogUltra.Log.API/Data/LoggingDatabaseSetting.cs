@@ -1,4 +1,4 @@
-﻿using LogUltra.Core.Abstraction;
+﻿using LogUltra.Core.Abstraction.Database;
 
 namespace LogUltra.Log.API.Data
 {

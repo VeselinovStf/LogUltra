@@ -1,4 +1,4 @@
-﻿namespace LogUltra.Core.Abstraction
+﻿namespace LogUltra.Core.Abstraction.Database
 {
     public interface ILogDb
     {

@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LogUltra.Core\LogUltra.Core.csproj" />
+    <ProjectReference Include="..\LogUltra.Core\LogUltra.Core.Abstraction.csproj" />
     <ProjectReference Include="..\LogUltra.TemplateParser\LogUltra.TemplateParser.csproj" />
   </ItemGroup>
 

@@ -1,4 +1,5 @@
-﻿using LogUltra.Core.Abstraction;
+﻿using LogUltra.Core.Abstraction.Database;
+using LogUltra.Core.Abstraction.Log;
 
 namespace LogUltra.MongoDb.Condigurations
 {

@@ -1,4 +1,4 @@
-﻿using LogUltra.Core.Abstraction;
+﻿using LogUltra.Core.Abstraction.Database;
 using LogUltra.Log.Service.Models;
 using LogUltra.MongoDb;
 using LogUltra.MongoDb.Condigurations;

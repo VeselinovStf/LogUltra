@@ -1,4 +1,4 @@
-﻿using LogUltra.Core.Abstraction;
+﻿using LogUltra.Core.Abstraction.Format;
 using LogUltra.File.Condigurations;
 using LogUltra.TemplateParser;
 using Microsoft.Extensions.Logging;

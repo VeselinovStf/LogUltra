@@ -1,4 +1,4 @@
-﻿using LogUltra.Core.Abstraction;
+﻿using LogUltra.Core.Abstraction.Database;
 using LogUltra.Log.Service.Constants;
 using LogUltra.Log.Service.DTOs;
 using LogUltra.Log.Service.Exceptions;

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using System;
 
-namespace LogUltra.Core.Abstraction
+namespace LogUltra.Core.Abstraction.Format
 {
     public interface ITemplateFormatter
     {

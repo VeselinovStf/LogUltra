@@ -1,4 +1,4 @@
-﻿using LogUltra.Core.Abstraction;
+﻿using LogUltra.Core.Abstraction.Format;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace LogUltra.TemplateParser.Extensions

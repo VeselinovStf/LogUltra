@@ -1,4 +1,4 @@
-﻿using LogUltra.Core.Abstraction;
+﻿using LogUltra.Core.Abstraction.Format;
 using LogUltra.MongoDb.Condigurations;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;

@@ -1,4 +1,6 @@
-﻿namespace LogUltra.Core.Abstraction
+﻿using LogUltra.Core.Abstraction.Log;
+
+namespace LogUltra.Core.Abstraction.Database
 {
     public interface ILogUltraDataSetting : ILogSource
     {

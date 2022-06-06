@@ -1,5 +1,5 @@
 ﻿using LogUltra.Console.Condigurations;
-using LogUltra.Core.Abstraction;
+using LogUltra.Core.Abstraction.Format;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System;

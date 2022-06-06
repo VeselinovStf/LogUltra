@@ -1,4 +1,4 @@
-﻿using LogUltra.Core.Abstraction;
+﻿using LogUltra.Core.Abstraction.Database;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
 using System.Linq;

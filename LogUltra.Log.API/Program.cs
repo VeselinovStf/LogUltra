@@ -1,5 +1,5 @@
 using AutoMapper;
-using LogUltra.Core.Abstraction;
+using LogUltra.Core.Abstraction.Database;
 using LogUltra.Log.API.Data;
 using LogUltra.Log.API.DTOs;
 using LogUltra.Log.Service.Extensions;

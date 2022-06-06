@@ -1,6 +1,6 @@
 ﻿using LogUltra.Console.Condigurations;
 using LogUltra.Console.Providers;
-using LogUltra.Core.Abstraction;
+using LogUltra.Core.Abstraction.Format;
 using LogUltra.TemplateParser;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
