@@ -1,5 +1,6 @@
 using LogUltra.Console.Extensions;
 using LogUltra.File.Extensions;
+using LogUltra.Log.Service.Extensions;
 using LogUltra.MongoDb.Condigurations;
 using LogUltra.MongoDb.Extensions;
 using LogUltra.UI.Data;
@@ -54,8 +55,20 @@ namespace LogUltra.UI
                                      LogCollectionName = whbc.Configuration.GetSection("LoggingDatabaseSetting").GetSection("LogCollectionName").Value,
                                      Source = "LogUltra.UI"
                                  };
+                             }, whbc.Configuration)
+                             .AddLogUltraMongoDbService<LoggingDatabaseSetting>(c =>
+                             {
+                                 c.LogLevelsRules[Microsoft.Extensions.Logging.LogLevel.Information] = true;
+                                 c.DbSettings = new LogUltraMongoDbSetting()
+                                 {
+                                     ConnectionString = whbc.Configuration.GetSection("LoggingDatabaseSetting").GetSection("ConnectionString").Value,
+                                     DatabaseName = whbc.Configuration.GetSection("LoggingDatabaseSetting").GetSection("DatabaseName").Value,
+                                     LogCollectionName = whbc.Configuration.GetSection("LoggingDatabaseSetting").GetSection("LogCollectionName").Value,
+                                     Source = "LogUltra.UI"
+                                 };
                              }, whbc.Configuration);
                          logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
+
                      });
                 });
     }

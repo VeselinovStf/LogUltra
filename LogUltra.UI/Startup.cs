@@ -23,7 +23,7 @@ namespace LogUltra.UI
             services.AddControllersWithViews();
 
             // LogUltra Db
-            services.AddLogUltraLogService();
+            //services.AddLogUltraLogService();
             
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
         }

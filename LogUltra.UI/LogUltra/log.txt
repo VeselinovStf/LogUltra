@@ -1974,3 +1974,170 @@ Information
 Microsoft.Hosting.Lifetime
 Application is shutting down...
 -------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Hosting environment: Development
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Content root path: D:\Projects\HUB\LogUltra\LogUltra.UI
+-------------------------------------
+-------------------------------------
+0
+Information
+LogUltra.UI.Controllers.LogController
+Returning: {0}
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Now listening on: https://localhost:5001
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Now listening on: http://localhost:5000
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Hosting environment: Development
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Content root path: D:\Projects\HUB\LogUltra\LogUltra.UI
+-------------------------------------
+-------------------------------------
+0
+Information
+LogUltra.UI.Controllers.LogController
+Returning: {0}
+-------------------------------------
+-------------------------------------
+60
+Warning
+Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository
+Storing keys in a directory '/root/.aspnet/DataProtection-Keys' that may not be persisted outside of the container. Protected data will be unavailable when container is destroyed.
+-------------------------------------
+-------------------------------------
+35
+Warning
+Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager
+No XML encryptor configured. Key {47402c1c-912b-4c07-b2d4-955d8e2b8f2a} may be persisted to storage in unencrypted form.
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Now listening on: https://[::]:443
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Now listening on: http://[::]:80
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Hosting environment: Development
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Content root path: /app
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Now listening on: https://localhost:5001
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Now listening on: http://localhost:5000
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Hosting environment: Development
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Content root path: D:\Projects\HUB\LogUltra\LogUltra.UI
+-------------------------------------
+-------------------------------------
+0
+Information
+LogUltra.UI.Controllers.LogController
+Returning: {0}
+-------------------------------------
+-------------------------------------
+0
+Error
+LogUltra.UI.Controllers.LogController
+A timeout occurred after 30000ms selecting a server using CompositeServerSelector{ Selectors = MongoDB.Driver.MongoClient+AreSessionsSupportedServerSelector, LatencyLimitingServerSelector{ AllowedLatencyRange = 00:00:00.0150000 }, OperationsCountServerSelector }. Client view of cluster state is { ClusterId : "1", Type : "Unknown", State : "Disconnected", Servers : [{ ServerId: "{ ClusterId : 1, EndPoint : "Unspecified/localhost:27017" }", EndPoint: "Unspecified/localhost:27017", ReasonChanged: "Heartbeat", State: "Disconnected", ServerVersion: , TopologyVersion: , Type: "Unknown", HeartbeatException: "MongoDB.Driver.MongoConnectionException: An exception occurred while opening a connection to the server.
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (99): Cannot assign requested address [::1]:27017
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at MongoDB.Driver.Core.Connections.TcpStreamFactory.Connect(Socket socket, EndPoint endPoint, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Connections.TcpStreamFactory.CreateStream(EndPoint endPoint, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Connections.BinaryConnection.OpenHelper(CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at MongoDB.Driver.Core.Connections.BinaryConnection.OpenHelper(CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Connections.BinaryConnection.Open(CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Servers.ServerMonitor.InitializeConnection(CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Servers.ServerMonitor.Heartbeat(CancellationToken cancellationToken)", LastHeartbeatTimestamp: "2022-06-06T07:38:18.8200172Z", LastUpdateTimestamp: "2022-06-06T07:38:18.8200173Z" }] }.
+-------------------------------------
+-------------------------------------
+0
+Information
+LogUltra.UI.Controllers.LogController
+Returning: {0}
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Application is shutting down...
+-------------------------------------

@@ -65,7 +65,7 @@ namespace LogUltra.MongoDb
                             logs.InsertOneAsync(new Log()
                             {
                                 CreatedAt = DateTime.UtcNow,
-                                Description = $"{eventId.Id}:{state}",
+                                Description = $"ID: {eventId.Id} : STATE: {state.ToString()}",
                                 Exception = exception == null ? $"" : $"{exception}{Environment.NewLine}{exception.Message}{Environment.NewLine}{exception.StackTrace}{Environment.NewLine}{exception.InnerException}",
                                 IsException = exception != null,
                                 Level = logLevel.ToString(),

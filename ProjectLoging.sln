@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.0.32014.148
+VisualStudioVersion = 17.2.32516.85
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogUltra.Core", "LogUltra.Core\LogUltra.Core.csproj", "{40C7325C-852C-4487-A716-348FDF469AF5}"
 EndProject
@@ -23,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogUltra.Log.Service", "Log
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogUltra.MongoDb", "LogUltra.MongoDb\LogUltra.MongoDb.csproj", "{39036AC5-97A2-4269-BAA6-D9619EA966DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogUltra.TemplateParser", "LogUltra.TemplateParser\LogUltra.TemplateParser.csproj", "{D0D18B27-7F61-4E48-86ED-CF775514F57F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogUltra.TemplateParser", "LogUltra.TemplateParser\LogUltra.TemplateParser.csproj", "{D0D18B27-7F61-4E48-86ED-CF775514F57F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Providers", "Providers", "{BB965283-F9B4-470B-BC88-5396C96768CE}"
 EndProject
@@ -36,6 +36,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{D1FB5D26-79FF-45B9-9631-FF1BA8B258B2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{F07838F9-188D-406D-AC85-8734D3B4B91C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogUltra.Log.API", "LogUltra.Log.API\LogUltra.Log.API.csproj", "{D932F950-3182-431A-BC7E-0F1CB9C33437}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{D0D18B27-7F61-4E48-86ED-CF775514F57F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0D18B27-7F61-4E48-86ED-CF775514F57F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0D18B27-7F61-4E48-86ED-CF775514F57F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D932F950-3182-431A-BC7E-0F1CB9C33437}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D932F950-3182-431A-BC7E-0F1CB9C33437}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D932F950-3182-431A-BC7E-0F1CB9C33437}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D932F950-3182-431A-BC7E-0F1CB9C33437}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -90,6 +96,7 @@ Global
 		{D0D18B27-7F61-4E48-86ED-CF775514F57F} = {C7B780C9-81B9-4BC2-BB5C-B57441C3A0DF}
 		{C7B780C9-81B9-4BC2-BB5C-B57441C3A0DF} = {B7DC9848-BE5C-4E92-967F-400D20A0F6F2}
 		{B8F8748D-F71F-4842-BD63-2CA57368F10E} = {B7DC9848-BE5C-4E92-967F-400D20A0F6F2}
+		{D932F950-3182-431A-BC7E-0F1CB9C33437} = {F07838F9-188D-406D-AC85-8734D3B4B91C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D38A0C02-0E5D-4D79-A867-C9A374FB1DD0}
