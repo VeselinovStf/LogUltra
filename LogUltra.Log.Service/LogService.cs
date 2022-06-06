@@ -72,7 +72,7 @@ namespace LogUltra.Log.Service
 
                 return new GetLogsResponseModel()
                 {
-                    Message = ConstantMessages.LogServiceMessages.SuccessMessages.GetAllLogsAsyncSuccessMessage,
+                    Message = string.Format(ConstantMessages.LogServiceMessages.SuccessMessages.GetAllLogsAsyncSuccessMessage, $"{data.Count()} elements"),
                     Success = true,
                     Logs = new List<LogDTO>(data.Select(l => new LogDTO()
                     {

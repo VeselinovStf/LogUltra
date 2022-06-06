@@ -1,6 +1,6 @@
 ﻿using LogUltra.Core.Abstraction;
 
-namespace LogUltra.UI.Data
+namespace LogUltra.ExampleUse
 {
     public class LoggingDatabaseSetting : ILogUltraDataSetting
     {

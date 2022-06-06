@@ -17,7 +17,7 @@ namespace LogUltra.File
         private readonly ITemplateParser _templateParser;
 
         public LogUltraFileLogger(
-              ITemplateFormatter templateFormatter,
+            ITemplateFormatter templateFormatter,
             ITemplateParser templateParser,
             string name,
             Func<LogUltraFileConfiguration> getCurrentConfig)

@@ -2,7 +2,6 @@ using AutoMapper;
 using LogUltra.Core.Abstraction;
 using LogUltra.Log.API.Data;
 using LogUltra.Log.API.DTOs;
-using LogUltra.Log.Service.DTOs;
 using LogUltra.Log.Service.Extensions;
 using LogUltra.Log.Service.Models;
 using LogUltra.MongoDb.Condigurations;
@@ -41,38 +40,43 @@ builder.Host.ConfigureLogging((whbc, logging) =>
 
 var app = builder.Build();
 
-app.MapPost("api/logs",async (
-    [FromBody]GetLogsRequestDTO request, 
-    [FromServices]ILogService<GetLogsResponseModel> _logService,
-    [FromServices]ILogger<Program> _logger,
-    [FromServices]IMapper _mapper) =>
+app.MapPost("api/logs", async (
+    [FromBody] GetLogsRequestDTO request,
+    [FromServices] ILogService<GetLogsResponseModel> _logService,
+    [FromServices] ILogger<Program> _logger,
+    [FromServices] IMapper _mapper) =>
     {
         try
-        {   
+        {
             var serviceResponse = await _logService
                 .GetAsync(
                     request.SortColumn,
-                    request.SortColumnDirection, 
+                    request.SortColumnDirection,
                     request.SearchValue,
-                    request.Level, 
-                    request.Source, 
-                    request.Exception, 
-                    request.PageSize, 
+                    request.Level,
+                    request.Source,
+                    request.Exception,
+                    request.PageSize,
                     request.Skip);
-    
+
             if (serviceResponse.Success)
             {
                 int recordsTotal = serviceResponse.Logs.Count();
-    
-                var mappedLogs = _mapper.Map<List<LogDTO>>(serviceResponse.Logs);
-    
-                var jsonData = new { recordsFiltered = recordsTotal, recordsTotal = recordsTotal, data = mappedLogs };
-    
+
+                var mappedLogs = _mapper.Map<List<LogResponseDTO>>(serviceResponse.Logs);
+
                 _logger.LogInformation(serviceResponse.Message);
-    
-                return Results.Ok(jsonData);
+
+                return Results.Ok(new GetLogsResponseDTO()
+                {
+                    Data = mappedLogs,
+                    Success = true,
+                    Message = serviceResponse.Message,
+                    RecordsFiltered = recordsTotal,
+                    RecordsTotal = recordsTotal
+                });
             }
-    
+
             _logger.LogError(serviceResponse.Message);
 
             return Results.BadRequest();
