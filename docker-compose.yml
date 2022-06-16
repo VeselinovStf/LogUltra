@@ -7,8 +7,8 @@ services:
     ports:
       - 27017:27017
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
     networks:
       - logultra
   mongo-express:
@@ -17,9 +17,9 @@ services:
     ports:
       - 8081:8081
     environment:
-      ME_CONFIG_MONGODB_ADMINUSERNAME: root
-      ME_CONFIG_MONGODB_ADMINPASSWORD: example
-      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
+      ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGO_USER}
+      ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGO_PASSWORD}
+      ME_CONFIG_MONGODB_URL: "mongodb://${MONGO_USER}:${MONGO_PASSWORD}@mongo:27017/"
     depends_on:
       - mongo
     networks:
@@ -31,6 +31,11 @@ services:
       dockerfile: Presentation/LogUltra.Log.API/Dockerfile
     ports:
       - 5227:80 
+    environment:
+      - DB_CONNECTION_STRING=${DB_CONNECTION_STRING}
+      - DATABASE_NAME=${DATABASE_NAME}"
+      - LOG_COLLECTION_NAME="${LOG_COLLECTION_NAME}
+      - DB_SOURCE_PROPERTY="${DB_SOURCE_PROPERTY}"
     depends_on:
       - mongo
     networks:
@@ -45,6 +50,11 @@ services:
     depends_on:
       - logultra-api
       - mongo
+    environment:
+      - DB_CONNECTION_STRING=${DB_CONNECTION_STRING}
+      - DATABASE_NAME=${DATABASE_NAME}
+      - LOG_COLLECTION_NAME=${LOG_COLLECTION_NAME}
+      - DB_SOURCE_PROPERTY=${DB_SOURCE_PROPERTY}
     networks:
       - logultra
   logultra-ui:
@@ -57,6 +67,8 @@ services:
     depends_on:
       - logultra-api
       - mongo
+    environment:
+      - BASE_API_ADDRESS=${BASE_API_ADDRESS}
     networks:
       - logultra
 

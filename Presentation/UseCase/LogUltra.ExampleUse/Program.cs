@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using System;
 
 namespace LogUltra.ExampleUse
 {
@@ -29,29 +30,20 @@ namespace LogUltra.ExampleUse
                   webBuilder.ConfigureLogging((whbc, logging) =>
                   {
                       logging.ClearProviders()
-                            .AddLogUltraConsoleLogger(c =>
-                           {
-                               c.LogLevelsRules[Microsoft.Extensions.Logging.LogLevel.Trace] = true;
-                               c.TemplatePath = "LogUltra/logultra";
-                               c.UseTemplate = true;
-                           })
+                            .AddLogUltraConsoleLogger()
                             .AddLogUltraFileLogger(c =>
                            {
-                               c.LogLevelsRules[Microsoft.Extensions.Logging.LogLevel.Trace] = true;
-                               c.FilePath = @"LogUltra/log.txt";
-                               c.TemplatePath = "LogUltra/logultra";
-                               c.UseTemplate = true;
-
+                               c.LogLevelsRules[Microsoft.Extensions.Logging.LogLevel.Trace] = false;
                            })
                             .AddLogUltraMongoDbLogger<LoggingDatabaseSetting>(c =>
                            {
-                               c.LogLevelsRules[Microsoft.Extensions.Logging.LogLevel.Information] = true;
+                               c.LogLevelsRules[Microsoft.Extensions.Logging.LogLevel.Trace] = false;
                                c.DbSettings = new LogUltraMongoDbSetting()
                                {
-                                   ConnectionString = whbc.Configuration.GetSection("LoggingDatabaseSetting").GetSection("ConnectionString").Value,
-                                   DatabaseName = whbc.Configuration.GetSection("LoggingDatabaseSetting").GetSection("DatabaseName").Value,
-                                   LogCollectionName = whbc.Configuration.GetSection("LoggingDatabaseSetting").GetSection("LogCollectionName").Value,
-                                   Source = "LogUltra.ExampleUse"
+                                   ConnectionString = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING"),
+                                   DatabaseName = Environment.GetEnvironmentVariable("DATABASE_NAME"),
+                                   LogCollectionName = Environment.GetEnvironmentVariable("LOG_COLLECTION_NAME"),
+                                   Source = Environment.GetEnvironmentVariable("EXAMPLE_DB_SOURCE_PROPERTY")
                                };
                            }, whbc.Configuration);
                       logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);

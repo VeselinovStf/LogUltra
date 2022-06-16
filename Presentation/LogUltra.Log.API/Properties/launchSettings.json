@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "LogUltra.Log.API": {
+    "LogUltra.Log.API.DEV": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",
@@ -18,14 +18,6 @@
       },
       "applicationUrl": "http://localhost:5227",
       "dotnetRunMessages": true
-    },
-    "IIS Express": {
-      "commandName": "IISExpress",
-      "launchBrowser": true,
-      "launchUrl": "swagger",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
     },
     "Docker": {
       "commandName": "Docker",

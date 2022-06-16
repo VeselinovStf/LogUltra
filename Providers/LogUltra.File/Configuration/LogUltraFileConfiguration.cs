@@ -7,6 +7,6 @@ namespace LogUltra.File.Condigurations
         /// <summary>
         /// File path to log file. Mendatory if UseFile is set to try.
         /// </summary>
-        public string FilePath { get; set; }
+        public string FilePath { get; set; } = @"LogUltra/log.txt";
     }
 }

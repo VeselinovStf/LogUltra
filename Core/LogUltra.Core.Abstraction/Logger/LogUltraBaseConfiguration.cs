@@ -4,8 +4,8 @@
     {
         public int EventId { get; set; }
 
-        public string TemplatePath { get; set; }
+        public string TemplatePath { get; set; } = "LogUltra/logultra";
 
-        public bool UseTemplate { get; set; }
+        public bool UseTemplate { get; set; } = true;
     }
 }

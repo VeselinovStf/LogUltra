@@ -24,13 +24,14 @@ builder.Host.ConfigureLogging((whbc, logging) =>
     logging.ClearProviders()
         .AddLogUltraMongoDbService<LoggingDatabaseSetting>(c =>
         {
-            c.LogLevelsRules[Microsoft.Extensions.Logging.LogLevel.Information] = true;
+            c.LogLevelsRules[Microsoft.Extensions.Logging.LogLevel.Trace] = false;
+
             c.DbSettings = new LogUltraMongoDbSetting()
             {
-                ConnectionString = whbc.Configuration.GetSection("LoggingDatabaseSetting").GetSection("ConnectionString").Value,
-                DatabaseName = whbc.Configuration.GetSection("LoggingDatabaseSetting").GetSection("DatabaseName").Value,
-                LogCollectionName = whbc.Configuration.GetSection("LoggingDatabaseSetting").GetSection("LogCollectionName").Value,
-                Source = "LogUltra.Log.UI"
+                ConnectionString = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING"),
+                DatabaseName = Environment.GetEnvironmentVariable("DATABASE_NAME"),
+                LogCollectionName = Environment.GetEnvironmentVariable("LOG_COLLECTION_NAME"),
+                Source = Environment.GetEnvironmentVariable("API_DB_SOURCE_PROPERTY")
             };
         }, whbc.Configuration);
     logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace)

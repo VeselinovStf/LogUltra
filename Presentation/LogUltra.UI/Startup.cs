@@ -23,7 +23,8 @@ namespace LogUltra.UI
 
             services.AddHttpClient("loguptraapi", httpClient =>
             {
-                httpClient.BaseAddress = new Uri(Configuration.GetSection("LogApi").GetValue<string>("BaseAddress"));
+                //httpClient.BaseAddress = new Uri(Configuration.GetSection("LogApi").GetValue<string>("BaseAddress"));
+                httpClient.BaseAddress = new Uri(Environment.GetEnvironmentVariable("BASE_API_ADDRESS"));
             });
         }
 
