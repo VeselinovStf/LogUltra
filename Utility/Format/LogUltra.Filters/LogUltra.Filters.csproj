@@ -9,8 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LogUltra.Core\LogUltra.Core.csproj" />
-    <ProjectReference Include="..\LogUltra.Models\LogUltra.Models.csproj" />
+    <ProjectReference Include="..\..\..\Core\LogUltra.Models\LogUltra.Models.csproj" />
   </ItemGroup>
 
 </Project>

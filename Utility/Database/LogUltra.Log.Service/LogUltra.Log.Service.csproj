@@ -10,9 +10,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LogUltra.Core\LogUltra.Core.Abstraction.csproj" />
-    <ProjectReference Include="..\LogUltra.Models\LogUltra.Models.csproj" />
-    <ProjectReference Include="..\LogUltra.MongoDb\LogUltra.MongoDb.csproj" />
+    <ProjectReference Include="..\..\..\Core\LogUltra.Core.Abstraction\LogUltra.Core.Abstraction.csproj" />
+    <ProjectReference Include="..\..\..\Providers\LogUltra.MongoDb\LogUltra.MongoDb.csproj" />
   </ItemGroup>
+
 
 </Project>

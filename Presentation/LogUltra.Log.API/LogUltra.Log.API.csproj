@@ -13,7 +13,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LogUltra.Log.Service\LogUltra.Log.Service.csproj" />
+    <ProjectReference Include="..\..\Core\LogUltra.Core.Abstraction\LogUltra.Core.Abstraction.csproj" />
+    <ProjectReference Include="..\..\Providers\LogUltra.MongoDb\LogUltra.MongoDb.csproj" />
+    <ProjectReference Include="..\..\Utility\Database\LogUltra.Log.Service\LogUltra.Log.Service.csproj" />
   </ItemGroup>
+
 
 </Project>
