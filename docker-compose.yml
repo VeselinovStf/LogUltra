@@ -35,7 +35,7 @@ services:
       - DB_CONNECTION_STRING=${DB_CONNECTION_STRING}
       - DATABASE_NAME=${DATABASE_NAME}"
       - LOG_COLLECTION_NAME="${LOG_COLLECTION_NAME}
-      - DB_SOURCE_PROPERTY="${DB_SOURCE_PROPERTY}"
+      - DB_SOURCE_PROPERTY=LogUltra.API
     depends_on:
       - mongo
     networks:
@@ -54,7 +54,7 @@ services:
       - DB_CONNECTION_STRING=${DB_CONNECTION_STRING}
       - DATABASE_NAME=${DATABASE_NAME}
       - LOG_COLLECTION_NAME=${LOG_COLLECTION_NAME}
-      - DB_SOURCE_PROPERTY=${DB_SOURCE_PROPERTY}
+      - DB_SOURCE_PROPERTY=LogUltra.Example.App
     networks:
       - logultra
   logultra-ui:
