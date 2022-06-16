@@ -1,4 +1,4 @@
-﻿using LogUltra.Core.Abstraction.Log;
+﻿using LogUltra.Core.Abstraction.Logger;
 
 namespace LogUltra.Console.Condigurations
 {
