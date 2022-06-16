@@ -1,0 +1,64 @@
+version: '3.1'
+
+services:
+  mongo:
+    image: mongo:latest
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    networks:
+      - logultra
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
+    depends_on:
+      - mongo
+    networks:
+      - logultra
+  logultra-api:
+    container_name: logultra-api
+    build:
+      context: .
+      dockerfile: Presentation/LogUltra.Log.API/Dockerfile
+    ports:
+      - 5227:80 
+    depends_on:
+      - mongo
+    networks:
+      - logultra
+  example-app:
+    container_name: logultra-example-use-app
+    build:
+      context: .
+      dockerfile: Presentation/UseCase/LogUltra.ExampleUse/Dockerfile
+    ports:
+      - 5555:80 
+    depends_on:
+      - logultra-api
+      - mongo
+    networks:
+      - logultra
+  logultra-ui:
+    container_name: logultra-ui
+    build:
+      context: .
+      dockerfile: Presentation/LogUltra.UI/Dockerfile
+    ports:
+      - 5000:80 
+    depends_on:
+      - logultra-api
+      - mongo
+    networks:
+      - logultra
+
+networks:
+  logultra:

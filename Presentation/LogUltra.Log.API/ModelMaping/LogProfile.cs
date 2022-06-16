@@ -8,8 +8,7 @@ namespace LogUltra.Log.API.ModelMaping
     {
         public LogProfile()
         {
-            CreateMap<LogDTO, LogResponseDTO>()
-                   .ForMember(s => s.CreatedAt, m => m.MapFrom(e => e.CreatedAt.ToString("dd-MM-yyyy hh:mm:ss")));
+            CreateMap<LogDTO, LogResponseDTO>();
         }
     }
 }
