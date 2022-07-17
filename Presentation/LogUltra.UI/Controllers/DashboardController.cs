@@ -13,14 +13,14 @@ using System.Threading.Tasks;
 
 namespace LogUltra.UI.Controllers
 {
-    public class LogController : Controller
+    public class DashboardController : Controller
     {
         private readonly IHttpClientFactory _clientFactory;
-        private readonly ILogger<LogController> _logger;
+        private readonly ILogger<DashboardController> _logger;
 
-        public LogController(
+        public DashboardController(
             IHttpClientFactory clientFactory,
-            ILogger<LogController> logger)
+            ILogger<DashboardController> logger)
         {
             this._clientFactory = clientFactory;
             this._logger = logger;
@@ -52,7 +52,7 @@ namespace LogUltra.UI.Controllers
                 };
 
                 // Http Client
-                var httpClient = _clientFactory.CreateClient("loguptraapi");
+                var httpClient = _clientFactory.CreateClient("logultraapi");
 
                 var todoItemJson = new StringContent(
                     JsonConvert.SerializeObject(requestModel),

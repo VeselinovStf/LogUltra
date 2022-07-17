@@ -21,7 +21,7 @@ namespace LogUltra.UI
         {
             services.AddControllersWithViews();
 
-            services.AddHttpClient("loguptraapi", httpClient =>
+            services.AddHttpClient("logultraapi", httpClient =>
             {
                 //httpClient.BaseAddress = new Uri(Configuration.GetSection("LogApi").GetValue<string>("BaseAddress"));
                 httpClient.BaseAddress = new Uri(Environment.GetEnvironmentVariable("BASE_API_ADDRESS"));
@@ -52,7 +52,7 @@ namespace LogUltra.UI
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Log}/{action=Index}/{id?}");
+                    pattern: "{controller=Dashboard}/{action=Index}/{id?}");
             });
         }
     }

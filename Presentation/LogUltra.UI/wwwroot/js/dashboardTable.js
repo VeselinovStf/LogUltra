@@ -6,7 +6,7 @@ $(document).ready(function () {
         "serverSide": true,
         "filter": true,
         "ajax": {
-            "url": "/log/list",
+            "url": "/Dashboard/List",
             "type": "POST",
             "datatype": "json",
             "data": function (data) {
