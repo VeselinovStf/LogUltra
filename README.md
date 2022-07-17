@@ -1,6 +1,6 @@
 # LogUltra
 
-![simple representation](https://github.com/VeselinovStf/Entity-API/blob/main/repo/demo.png)
+![simple representation](https://github.com/VeselinovStf/LogUltra/blob/main/repo/demo.png)
 
 ASP .NET CORE 3.1 Logger/ Monitoring Application
 
