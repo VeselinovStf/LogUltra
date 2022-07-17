@@ -1,6 +1,6 @@
 # LogUltra
 
-![simple representation]()
+![simple representation](https://github.com/VeselinovStf/Entity-API/blob/main/repo/demo.png)
 
 ASP .NET CORE 3.1 Logger/ Monitoring Application
 
@@ -11,21 +11,41 @@ ASP .NET CORE 3.1 Logger/ Monitoring Application
 - Entity Framework Core 3.1
 - MongoDb
 - AutoMapper
+- Docker
 
-## Environment Set Up
+## Run App Demo
   
 ```
-docker-compose -f .\docker-compose-mongo.yml up -d --build
+docker-compose --env-file .env up --build
 ```
 
 ## Structure
 
 - Core
+  - LogUltra.Core.Abstraction
+    - Application core Abstractions
 - Presentation
+  - UseCase
+    - LogUltra.ExampleUse
+      - Example use of LogUltra Providers
+  - LogUltra.Log.API
+    - Simple API for Logs requests
+  - LogUltra.UI
+    - Simple Razor Page Web UI for displaying loggs
 - Providers
+  - LogUltra.Console
+    - Log to Console Provider
+  - LogUltra.File
+    - Log to File Provider
+  - LogUltra.MongoDb
+    - Log to Db ( currently MongoDb ) Provider
 - Utility
 	- Database
+    	- LogUltra.Log.Service
+        	-  defines an application's available operations from the perspective of interfacing client layers.
 	- Format
+    	- LogUltra.TemplateParser
+        	-  simple parser for logultra configuration files
 
 ## Use Case
 
