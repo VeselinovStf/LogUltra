@@ -1,0 +1,76 @@
+version: '3.1'
+
+services:
+  mongo:
+    image: mongo:latest
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+    networks:
+      - logultra
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGO_USER}
+      ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGO_PASSWORD}
+      ME_CONFIG_MONGODB_URL: "mongodb://${MONGO_USER}:${MONGO_PASSWORD}@mongo:27017/"
+    depends_on:
+      - mongo
+    networks:
+      - logultra
+  logultra-api:
+    container_name: logultra-api
+    build:
+      context: .
+      dockerfile: Presentation/LogUltra.Log.API/Dockerfile
+    ports:
+      - 5227:80 
+    environment:
+      - DB_CONNECTION_STRING=${DB_CONNECTION_STRING}
+      - DATABASE_NAME=${DATABASE_NAME}"
+      - LOG_COLLECTION_NAME="${LOG_COLLECTION_NAME}
+      - DB_SOURCE_PROPERTY=LogUltra.API
+    depends_on:
+      - mongo
+    networks:
+      - logultra
+  example-app:
+    container_name: logultra-example-use-app
+    build:
+      context: .
+      dockerfile: Presentation/UseCase/LogUltra.ExampleUse/Dockerfile
+    ports:
+      - 5555:80 
+    depends_on:
+      - logultra-api
+      - mongo
+    environment:
+      - DB_CONNECTION_STRING=${DB_CONNECTION_STRING}
+      - DATABASE_NAME=${DATABASE_NAME}
+      - LOG_COLLECTION_NAME=${LOG_COLLECTION_NAME}
+      - DB_SOURCE_PROPERTY=LogUltra.Example.App
+    networks:
+      - logultra
+  logultra-ui:
+    container_name: logultra-ui
+    build:
+      context: .
+      dockerfile: Presentation/LogUltra.UI/Dockerfile
+    ports:
+      - 5000:80 
+    depends_on:
+      - logultra-api
+      - mongo
+    environment:
+      - BASE_API_ADDRESS=${BASE_API_ADDRESS}
+    networks:
+      - logultra
+
+networks:
+  logultra:

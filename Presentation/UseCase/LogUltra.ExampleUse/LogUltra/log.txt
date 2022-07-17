@@ -1,0 +1,462 @@
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Now listening on: https://localhost:5551
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Now listening on: http://localhost:5555
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Hosting environment: Development
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Content root path: D:\Projects\HUB\LogUltra\LogUltra.ExampleUse
+-------------------------------------
+-------------------------------------
+0
+Information
+LogUltra.ExampleUse.Pages.IndexModel
+Hello From Index
+-------------------------------------
+-------------------------------------
+0
+Information
+LogUltra.ExampleUse.Pages.IndexModel
+Hello From Index
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Now listening on: https://localhost:5551
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Now listening on: http://localhost:5555
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Hosting environment: Development
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Content root path: D:\Projects\HUB\LogUltra\LogUltra.ExampleUse
+-------------------------------------
+-------------------------------------
+0
+Information
+LogUltra.ExampleUse.Pages.PrivacyModel
+Hello From Privacy
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Application is shutting down...
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Now listening on: https://localhost:5551
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Now listening on: http://localhost:5555
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Hosting environment: Development
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Content root path: D:\Projects\HUB\LogUltra\LogUltra.ExampleUse
+-------------------------------------
+-------------------------------------
+0
+Information
+LogUltra.ExampleUse.Pages.PrivacyModel
+Hello From Privacy
+-------------------------------------
+-------------------------------------
+0
+Information
+LogUltra.ExampleUse.Pages.IndexModel
+Hello From Index
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Now listening on: https://localhost:5551
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Now listening on: http://localhost:5555
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Hosting environment: Development
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Content root path: D:\Projects\HUB\LogUltra\LogUltra.ExampleUse
+-------------------------------------
+-------------------------------------
+0
+Information
+LogUltra.ExampleUse.Pages.IndexModel
+Hello From Index
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Now listening on: https://localhost:5551
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Now listening on: http://localhost:5555
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Hosting environment: Development
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Content root path: D:\Projects\HUB\LogUltra\Presentation\UseCase\LogUltra.ExampleUse
+-------------------------------------
+-------------------------------------
+0
+Information
+LogUltra.ExampleUse.Pages.IndexModel
+Hello From Index
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Application is shutting down...
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Now listening on: https://localhost:5551
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Now listening on: http://localhost:5555
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Hosting environment: Development
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Content root path: D:\Projects\HUB\LogUltra\Presentation\UseCase\LogUltra.ExampleUse
+-------------------------------------
+-------------------------------------
+0
+Information
+LogUltra.ExampleUse.Pages.IndexModel
+Hello From Index
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Now listening on: https://localhost:5551
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Now listening on: http://localhost:5555
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Hosting environment: Development
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Content root path: D:\Projects\HUB\LogUltra\Presentation\UseCase\LogUltra.ExampleUse
+-------------------------------------
+-------------------------------------
+0
+Information
+LogUltra.ExampleUse.Pages.IndexModel
+Hello From Index
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Now listening on: https://localhost:5551
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Now listening on: http://localhost:5555
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Hosting environment: Development
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Content root path: D:\Projects\HUB\LogUltra\Presentation\UseCase\LogUltra.ExampleUse
+-------------------------------------
+-------------------------------------
+0
+Information
+LogUltra.ExampleUse.Pages.IndexModel
+Hello From Index
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Now listening on: https://localhost:5551
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Now listening on: http://localhost:5555
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Hosting environment: Development
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Content root path: D:\Projects\HUB\LogUltra\Presentation\UseCase\LogUltra.ExampleUse
+-------------------------------------
+-------------------------------------
+0
+Information
+LogUltra.ExampleUse.Pages.IndexModel
+Hello From Index
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Now listening on: https://localhost:5551
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Now listening on: http://localhost:5555
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Hosting environment: Development
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Content root path: D:\Projects\HUB\LogUltra\Presentation\UseCase\LogUltra.ExampleUse
+-------------------------------------
+-------------------------------------
+0
+Information
+LogUltra.ExampleUse.Pages.IndexModel
+Hello From Index
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Now listening on: https://localhost:5551
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Now listening on: http://localhost:5555
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Hosting environment: Development
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Content root path: D:\Projects\HUB\LogUltra\Presentation\UseCase\LogUltra.ExampleUse
+-------------------------------------
+-------------------------------------
+0
+Information
+LogUltra.ExampleUse.Pages.IndexModel
+Hello From Index
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Now listening on: https://localhost:5551
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Now listening on: http://localhost:5555
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Hosting environment: Development
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Content root path: D:\Projects\HUB\LogUltra\Presentation\UseCase\LogUltra.ExampleUse
+-------------------------------------
+-------------------------------------
+0
+Information
+LogUltra.ExampleUse.Pages.IndexModel
+Hello From Index
+-------------------------------------
+-------------------------------------
+0
+Information
+Microsoft.Hosting.Lifetime
+Application is shutting down...
+-------------------------------------

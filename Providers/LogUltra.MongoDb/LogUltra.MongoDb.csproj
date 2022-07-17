@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Driver" Version="2.15.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\LogUltra.Core.Abstraction\LogUltra.Core.Abstraction.csproj" />
+    <ProjectReference Include="..\..\Core\LogUltra.Models\LogUltra.Models.csproj" />
+    <ProjectReference Include="..\..\Utility\Format\LogUltra.TemplateParser\LogUltra.TemplateParser.csproj" />
+  </ItemGroup>
+
+
+
+</Project>

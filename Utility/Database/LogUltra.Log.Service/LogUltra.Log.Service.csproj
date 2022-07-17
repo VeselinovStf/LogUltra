@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
+    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.18" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\LogUltra.Core.Abstraction\LogUltra.Core.Abstraction.csproj" />
+    <ProjectReference Include="..\..\..\Providers\LogUltra.MongoDb\LogUltra.MongoDb.csproj" />
+  </ItemGroup>
+
+
+</Project>
